@@ -83,7 +83,7 @@ android {
         standalone {
             debuggable false
             jniDebuggable false
-            signingConfig signingConfigs.release
+            signingConfig signingConfigs.debug
             applicationIdSuffix ".web"
             minifyEnabled true
             multiDexEnabled true
