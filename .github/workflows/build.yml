@@ -34,7 +34,7 @@ jobs:
           sed -i 's/TMessagesProj_App/TMessagesProj_App${{ 'Huawei' }}/g' Dockerfile
       - name: Set Build Variant
         run: sed -i 's/assembleAfatStandalone/assembleAfat${{ github.event.inputs.build_variant }}/g' Dockerfile
-          sed -i 's/TMessagesProj_App/TMessagesProj_App${{ github.event.inputs.is_huawei && "Huawei" || "" }}/g' Dockerfile
+          sed -i 's/TMessagesProj_App/TMessagesProj_App${{ github.event.inputs.is_huawei && 'Huawei' || '' }}/g' Dockerfile
       - name: Build docker image
         run: docker build -t telegram-build .
       - name: Build app
