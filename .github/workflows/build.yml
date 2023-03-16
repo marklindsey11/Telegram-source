@@ -30,7 +30,7 @@ jobs:
         run: echo "${{ github.event.inputs.build_variant }}" | sed -e 's/\(.*\)/GITHUB_BUILD_VARIANT_LOWERCASE=\L\1/' >> $GITHUB_ENV
       - uses: actions/checkout@v2
       - name: Set Build Variant 2
-        run: sed -i 's/TMessagesProj_App/TMessagesProj_App${{ 'Huawei' }}/g' Dockerfile
+        run: sed -i 's/TMessagesProj_App/TMessagesProj_App${{ github.event.inputs.is_huawei && 'Huawei' || '' }}/g' Dockerfile
       - name: Set Build Variant
         run: sed -i 's/assembleAfatStandalone/assembleAfat${{ github.event.inputs.build_variant }}/g' Dockerfile
           sed -i 's/TMessagesProj_App/TMessagesProj_App${{ github.event.inputs.is_huawei && 'Huawei' || '' }}/g' Dockerfile
